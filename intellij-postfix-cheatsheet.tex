@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage[table]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage[cm]{fullpage}
+
+\setlist{nolistsep}
+\definecolor{green}{HTML}{66FF66}
+\definecolor{myGreen}{HTML}{009900}
+
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\arraystretch}{1.4}
+
+\title{\vspace{-2cm}\textbf{IntellliJ IDEA Postfix Completion}}
+\date{}
+
+\begin{document}
+
+%\maketitle
+
+\begin{center}
+\begin{tabularx}{\textwidth}[t]{m{3cm}ll}
+
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{myGreen}{Variables}} & \\
+\hline
+var & T name = expr & Introduces variable for expression \\
+arg & functionCall(expr) & Wraps object with a function call \\
+cast & ((SomeType) expr) & Surrounds expression with cast\\
+castvar & T name = (T) expr & Creates a new variable for the expression with casting \\
+field & myField = expr & Introduces field for expression \\
+inst & expr.instanceof Type ? ((Type) expr) : null & Surrounds expression with instanceof.\\
+new & new T() & Inserts new call for the class \\
+opt & Optional.ofNullable(expr) & Creates Optional object \\
+return & return expr & Returns value from containing method \\
+lambda & () -> expr & Surrounds expression with lambda \\
+par & (expr) & Parenthesizes expression \\
+
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{myGreen}{Conditions}} & \\
+\hline
+! & !expr & Negates boolean expression \\
+assert & assert expr & Creates assertion from boolean expression \\
+if & if (expr) & Checks boolean expression to be 'true' \\
+else & if (!expr) & Checks boolean expression to be 'false' \\
+switch & switch(expr) & Produces switch over values. \\
+nn & if (expr != null) & Checks expression to be not-null. \\
+not & !expr & Negates boolean expression \\
+notnull & if (!expr != null) & Checks expression to be not-null \\
+null & if (expr == null) & Checks expression to be null \\
+reqnonnull & Objects.requireNonNull(expr) & Wraps object with Objects.requireNonNull \\
+
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{myGreen}{Loops}} & \\
+\hline
+while & while (expr) {} & Iterating while boolean statement is 'true' \\
+for / iter & for(T item : expr) & Iterates over enumerable collection. \\
+fori & for & Iterates with index over collection. \\
+forrr & for (int i = expr.length - 1; i >= 0; i--) & Iterates with index in reverse order. \\
+stream & Arrays.stream(expr) & Creates Arrays.stream call.\\
+
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{myGreen}{Exceptions}} & \\
+\hline
+throw & throw expr & Throws expression of 'Throwable' type\\
+try & try (exp) catch(Exception e) & Insert statement in try-catch block \\
+twr & try(Type f = new Type()) catch (Exception e)  & Insert statement in try-with-resources block \\
+
+\arrayrulecolor{green}\hline
+\textbf{\textcolor{myGreen}{Printing}} & \\
+\hline
+format & String.format(expr) & Creates String.format call \\
+serr & System.err.println(expr) & Creates System.err.println call \\
+souf & System.err.prinf("", expr) & Creates System.out.printf call \\
+sout & System.out.println(expr) & Creates System.out.println call \\
+soutv & System.out.prinln(expr) & Creates S.o.println with a description of printed value \\
+
+\end{tabularx}
+\end{center}
+
+\end{document}
